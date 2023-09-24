@@ -1,0 +1,31 @@
+SQL JOIN Practice
+
+1.    - Retrieve the course name and teacher for each enrollment.
+
+2.   - Get a list of all students and their enrollments if available, including students who haven't enrolled in any courses.
+
+3.    - List all courses and their teachers, including courses without any enrolled students.
+
+4.    - Display a list of all students and their enrollments along with all courses and their teachers.
+
+5.    - Find students who share the same age.
+
+6.   - Retrieve the names of students who are enrolled in a specific course.
+
+7.    - List courses that have no enrolled students.
+
+8.    - Display students who haven't enrolled in any courses.
+
+9.    - Count the number of students in each course.
+
+10.     - Retrieve a list of courses along with the count of students enrolled in each course.
+
+11.     - Show a list of teachers and the courses they are teaching, including teachers without assigned courses.
+
+12.     - List all students, all courses, and the count of students enrolled in each course.
+
+13.     - Retrieve the names of students who are enrolled in a specific course and are above a certain age.
+
+14.     - List courses with enrollments and display teacher details, including courses without enrollments.
+
+15.    - Display students who haven't enrolled in any courses and meet a certain age criterion.
