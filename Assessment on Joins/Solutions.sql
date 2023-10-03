@@ -120,3 +120,14 @@ GROUP BY c.CourseID;
 Explanation: Similar to question 10, but focuses on showing teacher details.
 
 ### 15. Display students who haven't enrolled in
+```sql
+
+
+```
+
+###16. Find the names of students who are enrolled in a specific course.
+```sql
+SELECT s.FirstName, s.LastName FROM Students s WHERE s.StudentID in (select e.StudentID FROM Enrollments e WHERE e.CourseID = "1")
+```
+
+### 17. List courses that have the same teacher as a specified course
