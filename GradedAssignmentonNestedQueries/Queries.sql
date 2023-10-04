@@ -124,3 +124,24 @@ WHERE
     );
 
 
+-- 6. Question: Find the class(es) where the students average age is above the average age of all students.
+-- Query:- 
+SELECT 
+    c.class_id, 
+    c.class_name, 
+    AVG(s.age) AS average_age_in_class
+FROM 
+    Classes c
+JOIN 
+    Students s ON c.class_id = s.class_id
+GROUP BY 
+    c.class_id, c.class_name
+HAVING 
+    AVG(s.age) > (
+        SELECT 
+            AVG(s_all.age) 
+        FROM 
+            Students s_all
+    );
+
+
