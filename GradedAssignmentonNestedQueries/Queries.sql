@@ -145,3 +145,19 @@ HAVING
     );
 
 
+-- 7. Question: Display the student names and their total scores, ordered by the total score in descending order.
+-- Query:- 
+SELECT 
+    s.student_id, 
+    s.student_name, 
+    SUM(sc.score) AS total_score
+FROM 
+    Students s
+JOIN 
+    Scores sc ON s.student_id = sc.student_id
+GROUP BY 
+    s.student_id, s.student_name
+ORDER BY 
+    total_score DESC;
+
+
