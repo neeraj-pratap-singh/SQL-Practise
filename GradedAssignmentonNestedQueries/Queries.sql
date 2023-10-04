@@ -195,3 +195,13 @@ ORDER BY
     highest_score DESC;
 
 
+-- 9. Question: List the names of students who scored the same as Alice in at least one subject.
+-- Query:- 
+SELECT DISTINCT s2.student_name
+FROM Scores sc1
+JOIN Students s1 ON sc1.student_id = s1.student_id
+JOIN Scores sc2 ON sc1.score = sc2.score AND sc1.subject = sc2.subject
+JOIN Students s2 ON sc2.student_id = s2.student_id
+WHERE s1.student_name = 'Alice' AND s2.student_name != 'Alice';
+
+
