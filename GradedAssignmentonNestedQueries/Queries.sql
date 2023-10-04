@@ -205,3 +205,23 @@ JOIN Students s2 ON sc2.student_id = s2.student_id
 WHERE s1.student_name = 'Alice' AND s2.student_name != 'Alice';
 
 
+-- 10. Question: Display the class names along with the number of students who scored below the average score in their class.
+-- Query:- 
+SELECT c.class_name, COUNT(DISTINCT s.student_id) AS below_avg_count
+FROM Classes c
+JOIN Students s ON c.class_id = s.class_id
+JOIN Scores sc ON s.student_id = sc.student_id
+WHERE (s.class_id, sc.subject) IN (
+    SELECT class_id, subject
+    FROM Scores
+    JOIN Students ON Scores.student_id = Students.student_id
+    GROUP BY class_id, subject
+    HAVING AVG(score)
+)
+AND sc.score < (
+    SELECT AVG(score)
+    FROM Scores
+    JOIN Students ON Scores.student_id = Students.student_id
+    WHERE Students.class_id = c.class_id AND Scores.subject = sc.subject
+)
+GROUP BY c.class_name;
