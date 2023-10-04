@@ -71,3 +71,28 @@ VALUES
 (3, 3, '2023-09-16', 80.00),
 (4, 1, '2023-09-15', 20.00),
 (5, 5, '2023-09-14', 30.00);
+
+9. Create OrderDetails table:
+
+CREATE TABLE OrderDetails (
+    order_detail_id INT PRIMARY KEY AUTO_INCREMENT,
+    order_id INT,
+    product_id INT,
+    quantity INT,
+    FOREIGN KEY (order_id) REFERENCES Orders(order_id),
+    FOREIGN KEY (product_id) REFERENCES Products(product_id)
+);
+
+10. Insert records into `OrderDetails` table:
+
+INSERT INTO OrderDetails (order_id, product_id, quantity) VALUES
+(1, 1, 3),
+(1, 2, 2),
+(2, 3, 1),
+(3, 4, 4),
+(4, 1, 1),
+(4, 3, 2),
+(4, 5, 3),
+(5, 2, 1),
+(5, 4, 1),
+(5, 6, 1);
