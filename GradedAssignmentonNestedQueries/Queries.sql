@@ -29,3 +29,33 @@ WHERE
     sc2.score = MAX_score AND sc2.subject = 'Science';
 
 
+-- 2. Question: List the names of students who scored lower in Math than their average Science score.
+-- Query:- 
+SELECT 
+    s.student_name
+FROM 
+    Students s
+JOIN (
+    SELECT 
+        student_id, 
+        AVG(score) AS avg_science_score
+    FROM 
+        Scores
+    WHERE 
+        subject = 'Science'
+    GROUP BY 
+        student_id
+) AS avg_scores ON s.student_id = avg_scores.student_id
+JOIN (
+    SELECT 
+        student_id, 
+        score AS math_score
+    FROM 
+        Scores
+    WHERE 
+        subject = 'Math'
+) AS math_scores ON s.student_id = math_scores.student_id
+WHERE 
+    math_scores.math_score < avg_scores.avg_science_score;
+
+
