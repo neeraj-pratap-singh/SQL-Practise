@@ -79,3 +79,48 @@ ORDER BY
 LIMIT 1;
 
 
+-- 4. Question: Find the students who scored the highest in each subject.
+-- Query:- 
+SELECT 
+    sc1.subject, 
+    s.student_name, 
+    sc1.score AS highest_score
+FROM 
+    Scores sc1
+JOIN Students s ON sc1.student_id = s.student_id
+WHERE 
+    (sc1.score, sc1.subject) IN (
+        SELECT 
+            MAX(sc2.score), 
+            sc2.subject
+        FROM 
+            Scores sc2
+        GROUP BY 
+            sc2.subject
+    );
+
+
+-- 5. Question: List the names of students who scored higher than the average of any student's score in their own class.
+-- Query:- 
+SELECT 
+    s1.student_name, 
+    s1.class_id, 
+    sc1.subject, 
+    sc1.score
+FROM 
+    Students s1
+JOIN 
+    Scores sc1 ON s1.student_id = sc1.student_id
+WHERE 
+    sc1.score > (
+        SELECT 
+            AVG(sc2.score) 
+        FROM 
+            Students s2
+        JOIN 
+            Scores sc2 ON s2.student_id = sc2.student_id
+        WHERE 
+            s2.class_id = s1.class_id
+    );
+
+
