@@ -59,3 +59,23 @@ WHERE
     math_scores.math_score < avg_scores.avg_science_score;
 
 
+-- 3. Question: Display the class names with the highest number of students who scored above 80 in any subject.
+-- Query:- 
+SELECT 
+    c.class_name, 
+    COUNT(DISTINCT s.student_id) AS num_students
+FROM 
+    Classes c
+JOIN 
+    Students s ON c.class_id = s.class_id
+JOIN 
+    Scores sc ON s.student_id = sc.student_id
+WHERE 
+    sc.score > 80
+GROUP BY 
+    c.class_id, c.class_name
+ORDER BY 
+    num_students DESC
+LIMIT 1;
+
+
