@@ -72,7 +72,7 @@ VALUES
 (4, 1, '2023-09-15', 20.00),
 (5, 5, '2023-09-14', 30.00);
 
-9. Create OrderDetails table:
+9. Create `OrderDetails` table:
 
 CREATE TABLE OrderDetails (
     order_detail_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -96,3 +96,41 @@ INSERT INTO OrderDetails (order_id, product_id, quantity) VALUES
 (5, 2, 1),
 (5, 4, 1),
 (5, 6, 1);
+
+11. Create `ProductPriceHistory` table:
+
+CREATE TABLE ProductPriceHistory (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    product_id INT,
+    price DECIMAL(10, 2),
+    date_recorded DATE,
+    FOREIGN KEY (product_id) REFERENCES Products(product_id)
+);
+
+
+12. Insert records into `ProductPriceHistory` table:
+
+-- Inserting historical prices for iPhone 13 with product_id = 1
+INSERT INTO ProductPriceHistory (product_id, price, date_recorded) VALUES (1, 990.00, '2023-01-01');
+INSERT INTO ProductPriceHistory (product_id, price, date_recorded) VALUES (1, 999.99, '2023-02-01');
+INSERT INTO ProductPriceHistory (product_id, price, date_recorded) VALUES (1, 950.00, '2023-07-15');
+
+-- Inserting historical prices for Nike Sneakers with product_id = 2
+INSERT INTO ProductPriceHistory (product_id, price, date_recorded) VALUES (2, 115.00, '2023-01-01');
+INSERT INTO ProductPriceHistory (product_id, price, date_recorded) VALUES (2, 120.00, '2023-02-01');
+
+-- Inserting historical prices for Microwave Oven with product_id = 3
+INSERT INTO ProductPriceHistory (product_id, price, date_recorded) VALUES (3, 85.00, '2023-01-01');
+INSERT INTO ProductPriceHistory (product_id, price, date_recorded) VALUES (3, 80.00, '2023-02-01');
+
+-- Inserting historical prices for Harry Potter Book with product_id = 4
+INSERT INTO ProductPriceHistory (product_id, price, date_recorded) VALUES (4, 25.00, '2023-01-01');
+INSERT INTO ProductPriceHistory (product_id, price, date_recorded) VALUES (4, 20.00, '2023-02-01');
+
+-- Inserting historical prices for Soccer Ball with product_id = 5
+INSERT INTO ProductPriceHistory (product_id, price, date_recorded) VALUES (5, 35.00, '2023-01-01');
+INSERT INTO ProductPriceHistory (product_id, price, date_recorded) VALUES (5, 30.00, '2023-02-01');
+
+-- Inserting historical prices for Nokia with product_id = 6
+INSERT INTO ProductPriceHistory (product_id, price, date_recorded) VALUES (6, 45.00, '2023-01-01');
+INSERT INTO ProductPriceHistory (product_id, price, date_recorded) VALUES (6, 40.00, '2023-02-01');
