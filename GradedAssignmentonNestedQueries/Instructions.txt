@@ -1,0 +1,75 @@
+Instructions:
+
+● Use the provided sample tables and data to write SQL queries for each question.
+
+● Write your queries in the workbench, make it work and share the results as screenshots in docs/text/pdf format on the V-learn.
+
+● If a question requires multiple queries, number them accordingly (e.g., Query 1, Query 2, etc.).
+
+● For each question, focus on using nested queries and joins appropriately.
+
+● Provide the final query result for each question.
+
+Sample Tables:
+
+Table: Students
+
+student_id    student_name      age   class_id
+
+1                       Alice                  18        101
+
+2                       Bob                   17        102
+
+3                       Carol                 18         101
+
+4                       David                 17        103
+
+Table: Classes
+
+class_id       class_name
+
+101                Math
+
+102                Science
+
+103                History
+
+Table: Scores
+
+student_id           subject score
+
+1            Math              90
+
+1           Science            85
+
+2            Math              78
+
+2           Science            92
+
+3           Math                88
+
+3           Science            79
+
+4            History            95
+
+Queries : 
+
+1. Question: For each class, find the student(s) who scored the highest in Science.
+
+2. Question: List the names of students who scored lower in Math than their average Science score.
+
+3. Question: Display the class names with the highest number of students who scored above 80 in any subject.
+
+4. Question: Find the students who scored the highest in each subject.
+
+5. Question: List the names of students who scored higher than the average of any student's score in their own class.
+
+6. Question: Find the class(es) where the students average age is above the average age of all students.
+
+7. Question: Display the student names and their total scores, ordered by the total score in descending order.
+
+8. Question: Find the student(s) who scored the highest in the class with the lowest average score.
+
+9. Question: List the names of students who scored the same as Alice in at least one subject.
+
+10. Question: Display the class names along with the number of students who scored below the average score in their class.
